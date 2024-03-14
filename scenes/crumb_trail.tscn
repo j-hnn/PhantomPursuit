@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfgerry4wpuyf"]
+
+[ext_resource type="Script" path="res://scripts/crumb_trail.gd" id="1_8we8c"]
+[ext_resource type="Texture2D" uid="uid://cbs4bdenayh6l" path="res://assets/placeholders/BreadCrumbsPlaceholder.png" id="1_uotd4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d5yuo"]
+
+[node name="crumb_trail" type="Area2D"]
+collision_layer = 32768
+script = ExtResource("1_8we8c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_uotd4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d5yuo")
