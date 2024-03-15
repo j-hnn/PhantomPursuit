@@ -16,6 +16,9 @@ func _process(delta):
 		spawn_enemy()
 		await get_tree().create_timer(spawn_delay).timeout
 		can_spawn = true
+		
+	if Input.is_action_pressed("spawn"):
+		spawn_enemy()
 
 func spawn_enemy():
 	var enemy = load("res://scenes/enemy.tscn").instantiate()

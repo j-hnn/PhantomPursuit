@@ -19,7 +19,7 @@ func makepath() -> void:
 	
 func create_crumb_trail():
 	var crumb = load("res://scenes/crumb_trail.tscn").instantiate()
-	crumb.global_position = Vector2(self.global_position.x, self.global_position.y - 110)
+	crumb.global_position = Vector2(self.global_position.x, self.global_position.y) # - 110)
 	get_parent().add_child(crumb)
 
 func _on_timer_timeout():

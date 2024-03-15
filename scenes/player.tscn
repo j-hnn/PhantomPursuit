@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://2vc0k4uwy24f"]
+[gd_scene load_steps=5 format=3 uid="uid://2vc0k4uwy24f"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lsw31"]
 [ext_resource type="Texture2D" uid="uid://b4ssgtmcbmh8x" path="res://assets/placeholders/icon.svg" id="1_x42xl"]
+[ext_resource type="PackedScene" uid="uid://be3g0wqhbuikt" path="res://scenes/player_gui.tscn" id="3_5veun"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lpva0"]
 radius = 63.1981
@@ -15,7 +16,10 @@ texture = ExtResource("1_x42xl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lpva0")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(93, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="player_gui" parent="Camera2D" instance=ExtResource("3_5veun")]
+visible = false
