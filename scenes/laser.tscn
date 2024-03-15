@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwekrrv571h5d"]
+
+[ext_resource type="Script" path="res://scripts/laser.gd" id="1_4ptr5"]
+[ext_resource type="Texture2D" uid="uid://dmmsux88hp863" path="res://assets/placeholders/LaserBeamPlaceholder.png" id="1_kjmkj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pu6yi"]
+radius = 38.0
+height = 84.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j7prp"]
+radius = 46.1736
+
+[node name="laser" type="CharacterBody2D"]
+collision_layer = 16384
+script = ExtResource("1_4ptr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_kjmkj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_pu6yi")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_j7prp")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

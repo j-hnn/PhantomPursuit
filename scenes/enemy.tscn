@@ -20,7 +20,8 @@ texture = ExtResource("2_0h46a")
 shape = SubResource("CircleShape2D_t73km")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 50.0
+path_desired_distance = 10.0
+avoidance_enabled = true
 debug_enabled = true
 
 [node name="Hitbox" type="Area2D" parent="."]
@@ -28,9 +29,8 @@ debug_enabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_x3r6k")
 
-[node name="Trailmarker" type="Marker2D" parent="."]
-
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
